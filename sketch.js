@@ -6,7 +6,7 @@ function setup() {
   textAlign(LEFT, TOP)
   fill(0, 0, 0)
   tSlider = createSlider(1, 15, 6, 0.1);
-  tSlider.position(width / 2, 0);
+  tSlider.position(width - 200, 5);
 }
 
 let T = 300
