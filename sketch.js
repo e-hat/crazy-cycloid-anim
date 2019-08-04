@@ -5,8 +5,9 @@ function setup() {
   textSize(40)
   textAlign(LEFT, TOP)
   fill(0, 0, 0)
-  tSlider = createSlider(1, 15, 6, 0.1);
-  tSlider.position(width - 200, 5);
+  tSlider = createSlider(1, 15, 4, 0.5);
+  tSlider.position(width / 2 - 200, 5);
+  
 }
 
 let T = 300
@@ -17,11 +18,12 @@ let R = 100
 // speed of the animation
 let increment = .01
 let rInit = 50
-
+// the amount of detail, changing this value makes a totally new animation!
+// let urlStep = (new URLSearchParameters(document.location.search)).get('tStep');
+// let tStep = (!isNaN(inputStep)) ? inputStep : 4
 
 function draw() {
   // scaling, otherwise the animation grows off screen
-  // the amount of detail, changing this value makes a totally new animation!
   let tStep = tSlider.value();
   let s = (rInit + R) / (r + R)
   scale(s)
@@ -60,7 +62,7 @@ function draw() {
   r += increment
   pop()
   fill(255)
-  textSize(30 / s)
-  text(r / R, 20 / s, 10 / s)
+  textSize(15 / s)
+  text(tSlider.value(), (tSlider.x - 23) / s, (tSlider.y + 5) / s);
   
 }
